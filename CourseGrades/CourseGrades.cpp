@@ -46,9 +46,13 @@ int main(){
 	// CALL FUNCTIONS
 	readData(inFile, students, numStudents, numTests);
 	calculateAverages(students, numStudents, numTests);
-	assignLetterGrades();
-	printReport();
+	assignLetterGrades(students, numStudents);
+	printReport(students, numStudents);
 
+	for (int i = 0; i < numStudents; i++) // de-allocate from memory.
+		delete[] students[i].pTestScores;
+
+	delete[] students;
 
 }
 
@@ -84,8 +88,24 @@ void calculateAverages(Student* students, int numStudents, int numTests) { // ca
 
 void assignLetterGrades(Student* students, int numStudents) { // extract grades, assign them to a letter grade for each student.
 
+	for (int i = 0; i < numStudents; i++) {
 
-
+		if (students[i].averageScore >= 90) {
+			students[i].letterGrade = 'A';
+		}
+		else if (students[i].averageScore >= 80) {
+			students[i].letterGrade = 'B';
+		}
+		else if (students[i].averageScore >= 70) {
+			students[i].letterGrade = 'C';
+		}
+		else if (students[i].averageScore >= 60) {
+			students[i].letterGrade = 'D';
+		}
+		else {
+			students[i].letterGrade = 'F';
+		}
+	}
 }
 
 void printReport(Student* students, int numStudents) { // print final and complete report.
