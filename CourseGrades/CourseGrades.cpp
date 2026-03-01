@@ -45,7 +45,7 @@ int main(){
 
 	// CALL FUNCTIONS
 	readData(inFile, students, numStudents, numTests);
-	calculateAverages();
+	calculateAverages(students, numStudents, numTests);
 	assignLetterGrades();
 	printReport();
 
@@ -68,8 +68,18 @@ void readData(ifstream &inFile, Student *students, int numStudents, int numTests
 
 void calculateAverages(Student* students, int numStudents, int numTests) { // calculate averages of each student's grades.
 
+	double sumOfTests = 0;
 
+	for (int i = 0; i < numStudents; i++) { // for each student, get the tests -v
 
+		double sumOfTests = 0;
+
+		for (int j = 0; j < numTests; j++) { // iterate through the test scores.
+			sumOfTests += students[i].pTestScores[j];
+
+			students[i].averageScore = sumOfTests / numTests; // get average here.
+		}
+	}
 }
 
 void assignLetterGrades(Student* students, int numStudents) { // extract grades, assign them to a letter grade for each student.
