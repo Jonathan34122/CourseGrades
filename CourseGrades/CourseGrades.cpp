@@ -11,40 +11,66 @@
 
 using namespace std;
 
+// Student Struct
+
+struct Student {
+
+public:
+
+	string name;
+	int studentID;
+	double *pTestScores;
+	double averageScore;
+	char letterGrade;
+
+};
+
 // PROTOTYPES
-void readData();
-void calculateAverages();
-void assignLetterGrades();
-void printReport();
+void readData(ifstream& inFile, Student* students, int numStudents, int numTests);
+void calculateAverages(Student *students, int numStudents, int numTests);
+void assignLetterGrades(Student *students, int numStudents);
+void printReport(Student *students, int numStudents);
+
 
 int main(){
 
+	int numStudents;
+	int numTests;
+
+	ifstream inFile("student_data.txt");
+	inFile >> numStudents >> numTests;
+
+	Student* students = new Student[numStudents];
+
+
+	// CALL FUNCTIONS
+	readData();
+	calculateAverages();
+	assignLetterGrades();
+	printReport();
+
+
+}
+
+void readData(ifstream &inFile, Student *students, int numStudents, int numTests) { // Purpose: to get data from student_data.txt
+
 	
 
+}
+
+void calculateAverages(Student* students, int numStudents, int numTests) { // calculate averages of each student's grades.
 
 
 
 }
 
-void readData() { // Purpose: to get data from student_data.txt
-
-	
-
-}
-
-void calculateAverages() { // calculate averages of each student's grades.
+void assignLetterGrades(Student* students, int numStudents) { // extract grades, assign them to a letter grade for each student.
 
 
 
 }
 
-void assignLetterGrades() { // extract grades, assign them to a letter grade for each student.
-
-
-
-}
-
-void printReport() { // print final and complete report.
+void printReport(Student* students, int numStudents) { // print final and complete report.
 
 
 
