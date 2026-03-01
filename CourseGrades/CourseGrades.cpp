@@ -79,12 +79,12 @@ void calculateAverages(Student* students, int numStudents, int numTests) { // ca
 
 	for (int i = 0; i < numStudents; i++) { // for each student, get the tests -v
 
-		double sumOfTests = 0;
+		students[i].averageScore = sumOfTests / numTests; // get average here.
 
 		for (int j = 0; j < numTests; j++) { // iterate through the test scores.
-			sumOfTests += students[i].pTestScores[j];
 
-			students[i].averageScore = sumOfTests / numTests; // get average here.
+			sumOfTests += students[i].pTestScores[j];
+			
 		}
 	}
 }
