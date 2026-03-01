@@ -75,17 +75,20 @@ void readData(ifstream &inFile, Student *students, int numStudents, int numTests
 
 void calculateAverages(Student* students, int numStudents, int numTests) { // calculate averages of each student's grades.
 
-	double sumOfTests = 0;
+	
 
 	for (int i = 0; i < numStudents; i++) { // for each student, get the tests -v
 
-		students[i].averageScore = sumOfTests / numTests; // get average here.
+		double sumOfTests = 0;
 
 		for (int j = 0; j < numTests; j++) { // iterate through the test scores.
 
 			sumOfTests += students[i].pTestScores[j];
 			
 		}
+
+		students[i].averageScore = sumOfTests / numTests; // get average here.
+
 	}
 }
 
