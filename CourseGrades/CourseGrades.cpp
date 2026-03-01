@@ -8,6 +8,7 @@
 // HEADER FILES
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -53,6 +54,8 @@ int main(){
 		delete[] students[i].pTestScores;
 
 	delete[] students;
+
+	inFile.close();
 
 }
 
@@ -110,6 +113,11 @@ void assignLetterGrades(Student* students, int numStudents) { // extract grades,
 
 void printReport(Student* students, int numStudents) { // print final and complete report.
 
+	for (int i = 0; i < numStudents; i++) {
 
+		cout << "Student: " << students[i].name << endl;
+		cout << "ID : " << students[i].studentID << endl;
+		cout << "Grade: " << students[i].letterGrade << endl << "--------------" << endl;
+	}
 
 }
