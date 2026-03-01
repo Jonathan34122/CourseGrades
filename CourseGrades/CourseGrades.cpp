@@ -44,7 +44,7 @@ int main(){
 
 
 	// CALL FUNCTIONS
-	readData();
+	readData(inFile, students, numStudents, numTests);
 	calculateAverages();
 	assignLetterGrades();
 	printReport();
@@ -54,7 +54,15 @@ int main(){
 
 void readData(ifstream &inFile, Student *students, int numStudents, int numTests) { // Purpose: to get data from student_data.txt
 
-	
+	for (int i = 0; i < numStudents; i++) { // Collect student names and ID #.
+		students[i].pTestScores = new double[numTests];
+		inFile >> students[i].name;
+		inFile >> students[i].studentID;
+
+		for (int j = 0; j < numTests; j++) { // nested loop. Now collect student's test scores.
+			inFile >> students[i].pTestScores[j];
+		}
+	}
 
 }
 
